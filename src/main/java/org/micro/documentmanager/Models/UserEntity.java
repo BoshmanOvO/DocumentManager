@@ -20,7 +20,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_DEFAULT;
 @Entity
 @Table(name = "users")
 @JsonInclude(NON_DEFAULT)
-public class User extends Auditable{
+public class UserEntity extends Auditable{
 
     @Column(unique = true, updatable = false, nullable = false)
     private String userId;

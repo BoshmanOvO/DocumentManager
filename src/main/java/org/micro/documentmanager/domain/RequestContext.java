@@ -1,4 +1,4 @@
-package org.micro.documentmanager.dto;
+package org.micro.documentmanager.domain;
 
 
 public class RequestContext {
