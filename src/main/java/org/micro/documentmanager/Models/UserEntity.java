@@ -3,14 +3,13 @@ package org.micro.documentmanager.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_DEFAULT;
+import static jakarta.persistence.FetchType.*;
 
 @Getter @Setter
 @ToString(callSuper = true)
@@ -47,5 +46,16 @@ public class UserEntity extends Auditable{
 
     @Column(columnDefinition = "TEXT")
     private String qrCodeImageUri;
-    private String roles; // create role class and map here with jpa
+
+    @ManyToOne(fetch = EAGER) // many users can have one role
+    @JoinTable(
+            name = "user_role",
+            joinColumns = @JoinColumn(
+                    name = "user_id", referencedColumnName = "id"), // from this class (UserEntity)
+                    inverseJoinColumns = @JoinColumn(
+                            name = "role_id",referencedColumnName = "id"
+            )
+    )
+    private RoleEntity roles;
+
 }
