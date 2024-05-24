@@ -1,5 +1,6 @@
 package org.micro.documentmanager.Models;
 
+
 import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -8,8 +9,11 @@ import jakarta.persistence.Table;
 import lombok.*;
 import org.hibernate.annotations.OnDelete;
 
+import java.util.UUID;
+
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_DEFAULT;
 import static org.hibernate.annotations.OnDeleteAction.CASCADE;
+
 
 @Getter
 @Setter
@@ -18,10 +22,10 @@ import static org.hibernate.annotations.OnDeleteAction.CASCADE;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "credentials")
+@Table(name = "confirmation")
 @JsonInclude(NON_DEFAULT)
-public class CredentialEntity extends Auditable{
-    private String password;
+public class ConfirmationEntity extends Auditable{
+    private String key;
 
     @OneToOne // one user can have one credential
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false) // flow -> it will make a column in this table with name user_id and it will reference to id column of UserEntity
@@ -31,8 +35,8 @@ public class CredentialEntity extends Auditable{
     @JsonProperty("user_id")
     private UserEntity user;
 
-    public CredentialEntity(UserEntity user, String password) {
+    public ConfirmationEntity(UserEntity user) {
         this.user = user;
-        this.password = password;
+        this.key = UUID.randomUUID().toString();
     }
 }
