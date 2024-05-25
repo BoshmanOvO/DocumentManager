@@ -32,6 +32,7 @@ public class UserEntity extends Auditable{
 
     private String phone;
     private String imageUrl;
+    private String bio;
 
     // will use this for security
     private Integer loginAttempts;
