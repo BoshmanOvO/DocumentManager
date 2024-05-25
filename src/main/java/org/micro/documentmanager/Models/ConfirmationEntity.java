@@ -25,7 +25,7 @@ import static org.hibernate.annotations.OnDeleteAction.CASCADE;
 @Table(name = "confirmation")
 @JsonInclude(NON_DEFAULT)
 public class ConfirmationEntity extends Auditable{
-    private String key;
+    private String key; // can find user by key
 
     @OneToOne // one user can have one credential
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false) // flow -> it will make a column in this table with name user_id and it will reference to id column of UserEntity
@@ -33,7 +33,7 @@ public class ConfirmationEntity extends Auditable{
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     @JsonIdentityReference(alwaysAsId = true)
     @JsonProperty("user_id")
-    private UserEntity user;
+    private UserEntity user; // find user by user_entity;
 
     public ConfirmationEntity(UserEntity user) {
         this.user = user;

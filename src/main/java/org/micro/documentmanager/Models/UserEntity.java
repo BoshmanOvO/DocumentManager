@@ -22,13 +22,13 @@ import static jakarta.persistence.FetchType.*;
 public class UserEntity extends Auditable{
 
     @Column(unique = true, updatable = false, nullable = false)
-    private String userId;
+    private String userId; // can find acc to this
 
     private String firstName;
     private String lastName;
 
     @Column(unique = true, nullable = false)
-    private String email;
+    private String email; // can find acc to this
 
     private String phone;
     private String imageUrl;
