@@ -18,7 +18,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_DEFAULT;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "user_role")
+@Table(name = "roles")
 @JsonInclude(NON_DEFAULT)
 public class RoleEntity extends Auditable{
     private String name; // user or admin;

@@ -44,7 +44,7 @@ public class UserEntity extends Auditable{
     @JsonIgnore
     private String qrCodeSecret;
 
-    @Column(columnDefinition = "TEXT") // store the image in text format
+    @Column(columnDefinition = "text") // store the image in text format
     private String qrCodeImageUri;
 
     @ManyToOne(fetch = EAGER) // many users can have one role,and one role can have many users --

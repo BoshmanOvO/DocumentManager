@@ -24,7 +24,7 @@ public class CredentialEntity extends Auditable{
     private String password;
 
     @OneToOne // one user can have one credential
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false) // flow -> it will make a column in this table with name user_id and it will reference to id column of UserEntity
+    @JoinColumn(name = "user_id", nullable = false) // flow -> it will make a column in this table with name user_id and it will reference to id column of UserEntity
     @OnDelete(action = CASCADE) // if user is deleted then delete the credential as well
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     @JsonIdentityReference(alwaysAsId = true)

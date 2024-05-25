@@ -5,8 +5,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.micro.documentmanager.Exception.ApiException;
 import org.micro.documentmanager.Service.EmailService;
-import org.micro.documentmanager.Utils.EmailUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -26,7 +24,7 @@ public class EmailServiceImpl implements EmailService {
 
     private final JavaMailSender javaMailSender;
 
-    @Value("${spring.mail.varify.host}")
+    @Value("${spring.mail.verify.host}")
     private String host;
     @Value("${spring.mail.username}")
     private String fromEmail;

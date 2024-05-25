@@ -1,0 +1,19 @@
+#Databases
+POSTGRESQL_HOST=localhost
+POSTGRESQL_PORT=5432
+POSTGRESQL_DB=docdatabse
+POSTGRESQL_USER=user
+POSTGRESQL_PASSWORD=letmein
+  
+  #Mail
+MAIL_HOST = smtp.gmail.com
+MAIL_PORT = 587
+MAIL_USERNAME = kumarashishbostan@gmail.com
+MAIL_PASSWORD = man1210$$$
+MAIL_VERIFY_HOST = https://securedoc.com
+  
+  
+  #Server
+CONTAINER_PORT=8080
+SPRING_PROFILES_ACTIVE=prod
+
